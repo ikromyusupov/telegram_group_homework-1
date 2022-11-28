@@ -12,8 +12,11 @@ def find_all_users_name(data: dict)->list:
     lst = []
     for i in data['messages']:
         user = i.get('actor',False)
+        fromuser = i.get('from',False)
         if user and user not in lst:
             lst.append(user)
+        if fromuser and (fromuser not in lst):
+            lst.append(fromuser)
     return lst
 data = read_data("data/result.json")
 print(find_all_users_name(data))
