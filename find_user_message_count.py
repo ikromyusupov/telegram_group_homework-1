@@ -15,7 +15,7 @@ def find_user_message_count(data: dict, users_id: str)->dict:
 
     for message in data['messages']:
         user_id = message.get('from_id', False)
-        if user_id and user_id in users_id:
+        if user_id and (user_id in users_id):
             message_count[user_id] += 1
 
     return message_count
